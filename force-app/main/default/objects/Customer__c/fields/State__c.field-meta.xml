@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>State__c</fullName>
+    <label>State</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Goa</fullName>
+                <default>false</default>
+                <label>Goa</label>
+            </value>
+            <value>
+                <fullName>Himachal Pradesh</fullName>
+                <default>false</default>
+                <label>Himachal Pradesh</label>
+            </value>
+            <value>
+                <fullName>Jammu &amp; Kashmir</fullName>
+                <default>false</default>
+                <label>Jammu &amp; Kashmir</label>
+            </value>
+            <value>
+                <fullName>Kerala</fullName>
+                <default>false</default>
+                <label>Kerala</label>
+            </value>
+            <value>
+                <fullName>Maharashtra</fullName>
+                <default>false</default>
+                <label>Maharashtra</label>
+            </value>
+            <value>
+                <fullName>Rajasthan</fullName>
+                <default>false</default>
+                <label>Rajasthan</label>
+            </value>
+            <value>
+                <fullName>Tamil Nadu</fullName>
+                <default>false</default>
+                <label>Tamil Nadu</label>
+            </value>
+            <value>
+                <fullName>Uttarakhand</fullName>
+                <default>false</default>
+                <label>Uttarakhand</label>
+            </value>
+            <value>
+                <fullName>Uttar Pradesh</fullName>
+                <default>false</default>
+                <label>Uttar Pradesh</label>
+            </value>
+            <value>
+                <fullName>West Bengal</fullName>
+                <default>false</default>
+                <label>West Bengal</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

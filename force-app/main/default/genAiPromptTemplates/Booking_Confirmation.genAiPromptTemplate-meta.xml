@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>WooZDufh8KGxsyZ8Pyls9zBTkNWg5FB8cqkqn+7PrtY=_4</activeVersionIdentifier>
+    <developerName>Booking_Confirmation</developerName>
+    <masterLabel>Booking Confirmation</masterLabel>
+    <relatedEntity>Reservation__c</relatedEntity>
+    <templateVersions>
+        <content>Here&apos;s a quick summary of your recent booking:
+
+**Booking Details:**
+- Booking Number : {!$Input:Reservation__c.Booking_Number__c}
+- Start Date : {!$Input:Reservation__c.Start_Date__c}
+- Duration : {!$Input:Reservation__c.Number_of_Days__c}
+- Vehicle Type : {!$Input:Reservation__c.Vehicle_Type__c}
+- Driver Included : {!$Input:Reservation__c.Driver__c}
+- Customer : {!$Input:Reservation__c.Customer__r.Name}
+- Location : {!$Input:Reservation__c.City__c}, {!$Input:Reservation__c.State__c}
+
+**Dealer Details:**
+- Dealer Name: {!$Input:Reservation__c.Dealer__r.Name}
+- Location: {!$Input:Reservation__c.Dealer__r.Location__c}
+- Contact: {!$Input:Reservation__c.Dealer__r.Phone__c}
+
+You should have also received an email with all these details for your reference.
+
+Wishing you a safe and pleasant journey! 🚗✨
+</content>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Reservation__c</definition>
+            <referenceName>Input:Reservation__c</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>WooZDufh8KGxsyZ8Pyls9zBTkNWg5FB8cqkqn+7PrtY=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Here&apos;s a quick summary of your recent booking:
+Always follow the points added in INSTRUCTIONS and use data from DATA -
+
+INSTRUCTIONS -
+1. Wish them a safe and happy journey
+2. Add 1-2 lines appeciating their choice of vehicle
+3. Share booking details like a 2-3 line paragraph.
+4. Do not share booking details in bullet points.
+5. Add all the booking details mentioned in DATA
+6. Show dealer details in bullet points.
+7. Use dealer details from DATA
+
+
+DATA -
+
+**Booking Details:**
+- Booking Number : {!$Input:Reservation__c.Booking_Number__c}
+- Start Date : {!$Input:Reservation__c.Start_Date__c}
+- Duration : {!$Input:Reservation__c.Number_of_Days__c}
+- Vehicle Type : {!$Input:Reservation__c.Vehicle_Type__c}
+- Driver Included : {!$Input:Reservation__c.Driver__c}
+- Customer : {!$Input:Reservation__c.Customer__r.Name}
+- Location : {!$Input:Reservation__c.City__c}, {!$Input:Reservation__c.State__c}
+
+**Dealer Details:**
+- Dealer Name: {!$Input:Reservation__c.Dealer__r.Name}
+- Location: {!$Input:Reservation__c.Dealer__r.Location__c}
+- Contact: {!$Input:Reservation__c.Dealer__r.Phone__c}
+
+You should have also received an email with all these details for your reference.
+
+Wishing you a safe and pleasant journey! 🚗✨
+</content>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Reservation__c</definition>
+            <referenceName>Input:Reservation__c</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>WooZDufh8KGxsyZ8Pyls9zBTkNWg5FB8cqkqn+7PrtY=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Here&apos;s a quick summary of your recent booking:
+Always follow the points added in INSTRUCTIONS and use data from DATA -
+
+INSTRUCTIONS -
+1. Wish them a safe and happy journey
+2. Add 1-2 lines appeciating their choice of vehicle
+3. Share booking details like a 2-3 line paragraph.
+4. Do not share booking details in bullet points.
+5. Add all the booking details mentioned in DATA
+6. Show dealer details in bullet points.
+7. Use dealer details from DATA
+8. From a booking company point of view, share the booking details in a 3-5 line paragraph.
+
+
+DATA -
+
+**Booking Details:**
+- Booking Number : {!$Input:Reservation__c.Booking_Number__c}
+- Start Date : {!$Input:Reservation__c.Start_Date__c}
+- Duration : {!$Input:Reservation__c.Number_of_Days__c}
+- Vehicle Type : {!$Input:Reservation__c.Vehicle_Type__c}
+- Driver Included : {!$Input:Reservation__c.Driver__c}
+- Customer : {!$Input:Reservation__c.Customer__r.Name}
+- Location : {!$Input:Reservation__c.City__c}, {!$Input:Reservation__c.State__c}
+
+**Dealer Details:**
+- Dealer Name: {!$Input:Reservation__c.Dealer__r.Name}
+- Location: {!$Input:Reservation__c.Dealer__r.Location__c}
+- Contact: {!$Input:Reservation__c.Dealer__r.Phone__c}
+
+You should have also received an email with all these details for your reference.
+
+Wishing you a safe and pleasant journey! 🚗✨
+</content>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Reservation__c</definition>
+            <referenceName>Input:Reservation__c</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>WooZDufh8KGxsyZ8Pyls9zBTkNWg5FB8cqkqn+7PrtY=_3</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Here&apos;s a quick summary of your recent booking:
+Always follow the points added in INSTRUCTIONS and use data from DATA -
+
+INSTRUCTIONS -
+1. Wish them a safe and happy journey
+2. Add 1-2 lines appeciating their choice of vehicle
+3. Share booking details like a 2-3 line paragraph.
+4. Do not share booking details in bullet points.
+5. Add all the booking details mentioned in DATA
+6. Show dealer details in bullet points.
+7. Use dealer details from DATA
+8. From a booking company point of view, share the booking details in a 3-5 line paragraph.
+9. Tell the user that 100% amount must be deposited at the pickup location.
+
+
+DATA -
+
+**Booking Details:**
+- Booking Number : {!$Input:Reservation__c.Booking_Number__c}
+- Start Date : {!$Input:Reservation__c.Start_Date__c}
+- Duration : {!$Input:Reservation__c.Number_of_Days__c}
+- Vehicle Type : {!$Input:Reservation__c.Vehicle_Type__c}
+- Driver Included : {!$Input:Reservation__c.Driver__c}
+- Customer : {!$Input:Reservation__c.Customer__r.Name}
+- Booked for : {!$Input:Reservation__c.City__c}, {!$Input:Reservation__c.State__c}
+- Pickup Location : {!$Input:Reservation__c.Pickup_Location__c}
+- Total Amount : {!$Input:Reservation__c.Total_Amount__c}
+
+**Dealer Details:**
+- Dealer Name: {!$Input:Reservation__c.Dealer__r.Name}
+- Location: {!$Input:Reservation__c.Dealer__r.Location__c}
+- Contact: {!$Input:Reservation__c.Dealer__r.Phone__c}
+
+You should have also received an email with all these details for your reference.
+
+Wishing you a safe and pleasant journey! 🚗✨
+</content>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Reservation__c</definition>
+            <referenceName>Input:Reservation__c</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>WooZDufh8KGxsyZ8Pyls9zBTkNWg5FB8cqkqn+7PrtY=_4</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__recordSummary</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

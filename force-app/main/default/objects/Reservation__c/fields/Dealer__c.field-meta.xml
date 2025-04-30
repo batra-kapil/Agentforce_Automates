@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dealer__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <label>Dealer</label>
+    <referenceTo>Customer__c</referenceTo>
+    <relationshipLabel>Reservations (Dealer)</relationshipLabel>
+    <relationshipName>Reservations1</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

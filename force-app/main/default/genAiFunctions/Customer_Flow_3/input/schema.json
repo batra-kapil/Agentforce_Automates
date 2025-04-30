@@ -1,0 +1,24 @@
+{
+  "required" : [ "Reason", "ReservationRecordVariable" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Reason" : {
+      "title" : "Reason",
+      "description" : "Ask customer reason for cancelling in an empathetic manner.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "ReservationRecordVariable" : {
+      "title" : "ReservationRecordVariable",
+      "description" : "Ask customer reason for cancelling in an empathetic manner.",
+      "lightning:type" : "lightning__recordInfoType",
+      "lightning:sObjectInfo" : {
+        "apiName" : "Reservation__c"
+      },
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

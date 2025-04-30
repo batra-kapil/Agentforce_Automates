@@ -1,0 +1,33 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "City" : {
+      "title" : "City",
+      "description" : "Store the city and share in conversation",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : true,
+      "copilotAction:isUsedByPlanner" : true,
+      "copilotAction:useHydratedPrompt" : false
+    },
+    "PreviousBooking" : {
+      "title" : "PreviousBooking",
+      "description" : "Store the previous booking",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true,
+      "copilotAction:useHydratedPrompt" : false
+    },
+    "State" : {
+      "title" : "State",
+      "description" : "Store the State and share it in conversation",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : true,
+      "copilotAction:isUsedByPlanner" : true,
+      "copilotAction:useHydratedPrompt" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

@@ -1,0 +1,31 @@
+{
+  "required" : [ "BookingRecord", "Reason", "newStatus" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "BookingRecord" : {
+      "title" : "BookingRecord",
+      "description" : "Get BookingRecord from Agent Flow 1",
+      "lightning:type" : "lightning__recordInfoType",
+      "lightning:sObjectInfo" : {
+        "apiName" : "Reservation__c"
+      },
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "Reason" : {
+      "title" : "Reason",
+      "description" : "Get Reason from dealer as comments",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "newStatus" : {
+      "title" : "newStatus",
+      "description" : "If Dealer wants to Confirm the booking then newStatus will be Confirmed. If Dealer wants to Complete the booking then newStatus will be Complete. If Dealer wants to Cancel the booking then newStatus will be Cancelled.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

@@ -1,0 +1,21 @@
+{
+  "required" : [ "Email", "OTP" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Email" : {
+      "title" : "Email",
+      "description" : "Get Email from Customer",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "OTP" : {
+      "title" : "OTP",
+      "description" : "Get OTP from Customer",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

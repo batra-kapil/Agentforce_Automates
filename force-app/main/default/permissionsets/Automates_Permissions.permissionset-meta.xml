@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <dataspaceScopes>
+        <customizeActivationDefinitions>false</customizeActivationDefinitions>
+        <customizeAllDefinitions>false</customizeAllDefinitions>
+        <customizeCalculatedInsightDefinitions>false</customizeCalculatedInsightDefinitions>
+        <customizeDataActionDefinitions>false</customizeDataActionDefinitions>
+        <customizeDataApplicationDefinitions>false</customizeDataApplicationDefinitions>
+        <customizeDataShareDefinitions>false</customizeDataShareDefinitions>
+        <customizeFTestDataspaceScopedDefinition>false</customizeFTestDataspaceScopedDefinition>
+        <customizeIdentityResolutionDefinitions>false</customizeIdentityResolutionDefinitions>
+        <customizeMLPredictionDefinitions>false</customizeMLPredictionDefinitions>
+        <customizeSegmentationDefinitions>false</customizeSegmentationDefinitions>
+        <customizeSemanticSearchDefinitions>false</customizeSemanticSearchDefinitions>
+        <dataAccessLevel>ALL</dataAccessLevel>
+        <dataspaceScope>default</dataspaceScope>
+        <viewActivationDefinitions>false</viewActivationDefinitions>
+        <viewCalculatedInsightDefinitions>false</viewCalculatedInsightDefinitions>
+        <viewDataActionDefinitions>false</viewDataActionDefinitions>
+        <viewDataApplicationDefinitions>false</viewDataApplicationDefinitions>
+        <viewDataShareDefinitions>false</viewDataShareDefinitions>
+        <viewFTestDataspaceScopedDefinition>false</viewFTestDataspaceScopedDefinition>
+        <viewIdentityResolutionDefinitions>false</viewIdentityResolutionDefinitions>
+        <viewMLPredictionDefinitions>false</viewMLPredictionDefinitions>
+        <viewSegmentationDefinitions>false</viewSegmentationDefinitions>
+        <viewSemanticSearchDefinitions>false</viewSemanticSearchDefinitions>
+    </dataspaceScopes>
+    <description>Allows custom permissions for Agentforce Agent : Automates&apos;s agent user : automates@00dns00000ibt1z.ext.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Automates Permissions</label>
+    <license>Einstein Agent</license>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Knowledge__kav</object>
+        <viewAllFields>false</viewAllFields>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+</PermissionSet>

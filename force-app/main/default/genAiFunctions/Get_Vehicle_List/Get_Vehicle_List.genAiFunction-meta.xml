@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Returns the list of vehicles details to agent</description>
+    <invocationTarget>getVehicleList</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+    <masterLabel>Get Vehicle List</masterLabel>
+    <progressIndicatorMessage>Checking our Garage...</progressIndicatorMessage>
+</GenAiFunction>

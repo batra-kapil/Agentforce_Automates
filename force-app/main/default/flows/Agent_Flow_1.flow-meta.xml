@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_Record_Variable</name>
+        <label>Assign Record Variable</label>
+        <locationX>50</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>BookingRecordVariable</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Booking_Details</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <name>Verify_Booking</name>
+        <label>Verify Booking</label>
+        <locationX>182</locationX>
+        <locationY>242</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Booking_Exists</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Booking_Details.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Record_Variable</targetReference>
+            </connector>
+            <label>Booking Exists</label>
+        </rules>
+    </decisions>
+    <description>Create an autolaunched flow to get booking details based on the input variables.</description>
+    <environments>Default</environments>
+    <interviewLabel>Agent Flow 1 {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Agent Flow 1</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Booking_Details</name>
+        <label>Get Booking Details</label>
+        <locationX>182</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Verify_Booking</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Booking_Number__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>BookingNumber</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Reservation__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Booking_Details</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>BookingNumber</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>BookingRecordVariable</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Reservation__c</objectType>
+    </variables>
+</Flow>

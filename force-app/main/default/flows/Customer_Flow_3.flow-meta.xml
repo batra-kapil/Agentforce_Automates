@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_message_to_dealer_about_cancellation</name>
+        <label>Send message to dealer about cancellation</label>
+        <locationX>176</locationX>
+        <locationY>782</locationY>
+        <actionName>slackPostMessage</actionName>
+        <actionType>slackPostMessage</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>slackAppIdForToken</name>
+            <value>
+                <stringValue>A028VJ1KG3G</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackWorkspaceIdForToken</name>
+            <value>
+                <stringValue>T08Q8661RPV</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackConversationId</name>
+            <value>
+                <elementReference>Get_Dealer_Details.Slack_Channel_ID__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackMessage</name>
+            <value>
+                <elementReference>SlackMessage</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recordId</name>
+            <value>
+                <elementReference>Get_Reservation_Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>slackPostMessage</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assignment_Cancellation_Values</name>
+        <label>Assignment Cancellation Values</label>
+        <locationX>176</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Reservation_Record.Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Cancelled</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Reservation_Record.Reason_of_Cancellation__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Reason</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Reservation_to_Cancelled</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Cancel_Confirmation</name>
+        <label>Cancel Confirmation</label>
+        <locationX>176</locationX>
+        <locationY>566</locationY>
+        <assignmentItems>
+            <assignToReference>ConfirmVar</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Reservation Cancelled</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Vehicle_Status</targetReference>
+        </connector>
+    </assignments>
+    <description>Create an Autolaunched Flow that cancels a reservation based on the Reservation Record provided by the agent.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>CancelledMessgae</name>
+        <dataType>String</dataType>
+        <expression>&apos;Customer has cancelled their booking for booking number &apos;+{!Get_Reservation_Record.Booking_Number__c}+&apos;. Reason of cancellation is &apos;+{!Get_Reservation_Record.Reason_of_Cancellation__c}</expression>
+    </formulas>
+    <interviewLabel>Customer Flow 3 {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Customer Flow 3</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Dealer_Details</name>
+        <label>Get Dealer Details</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assignment_Cancellation_Values</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Reservation_Record.Dealer__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Customer__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Reservation_Record</name>
+        <label>Get Reservation Record</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Dealer_Details</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ReservationRecordVariable.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Reservation__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Reservation_to_Cancelled</name>
+        <label>Update Reservation to Cancelled</label>
+        <locationX>176</locationX>
+        <locationY>458</locationY>
+        <connector>
+            <targetReference>Cancel_Confirmation</targetReference>
+        </connector>
+        <inputReference>Get_Reservation_Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Vehicle_Status</name>
+        <label>Update Vehicle Status</label>
+        <locationX>176</locationX>
+        <locationY>674</locationY>
+        <connector>
+            <targetReference>Send_message_to_dealer_about_cancellation</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Vehicle_Id__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Reservation_Record.Vehicle_Information__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Current_Status__c</field>
+            <value>
+                <stringValue>Available</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Vehicle_Information__c</object>
+    </recordUpdates>
+    <runInMode>DefaultMode</runInMode>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Reservation_Record</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <description>Email to the customers upon successful cancellation of reservation</description>
+        <name>Reservation_Cancelled</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hello {!Get_Reservation_Record.Customer__r.Name},&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Your Reservation has been cancelled and the reason for Cancellation is {!Get_Reservation_Record.Reason_of_Cancellation__c}&lt;/p&gt;&lt;p&gt;Please reach out to us for any further assistance&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Thanks,&lt;/p&gt;&lt;p&gt;Automates&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>SlackMessage</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Dear {!Get_Dealer_Details.Name},
+This is to inform you that the following booking has been cancelled:
+Booking Number : {!Get_Reservation_Record.Booking_Number__c}
+City : {!Get_Reservation_Record.City__c}
+State : {!Get_Reservation_Record.State__c}
+Pickup Location : {!Get_Reservation_Record.Pickup_Location__c}
+Start Date : {!Get_Reservation_Record.Start_Date__c}
+End Date : {!Get_Reservation_Record.End_Date__c}
+Vehicle Type : {!Get_Reservation_Record.Vehicle_Type__c}
+Total Amount : {!Get_Reservation_Record.Total_Amount__c}
+Reason for Cancellation : {!Get_Reservation_Record.Reason_of_Cancellation__c}
+This vehicle will now be available for further bookings.</text>
+    </textTemplates>
+    <variables>
+        <name>ConfirmVar</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <stringValue>Reservation Cancelled</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>Reason</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>ReservationRecordVariable</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Reservation__c</objectType>
+    </variables>
+</Flow>

@@ -1,0 +1,28 @@
+{
+  "required" : [ "Email", "FullName", "Phone" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Email" : {
+      "title" : "Email",
+      "description" : "Get Email Address From Customer",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "FullName" : {
+      "title" : "FullName",
+      "description" : "Get Full Name From Customer",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "Phone" : {
+      "title" : "Phone",
+      "description" : "Get Phone From Customer",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

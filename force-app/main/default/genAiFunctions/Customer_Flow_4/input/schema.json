@@ -1,0 +1,14 @@
+{
+  "required" : [ "CustomerUniqueID" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "CustomerUniqueID" : {
+      "title" : "CustomerUniqueID",
+      "description" : "Get Email from customer",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

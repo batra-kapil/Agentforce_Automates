@@ -1,0 +1,14 @@
+{
+  "required" : [ "filterValues" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "filterValues" : {
+      "title" : "filterValues",
+      "description" : "Get City, State and VehicleType in this variable as a list of string in the same order.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

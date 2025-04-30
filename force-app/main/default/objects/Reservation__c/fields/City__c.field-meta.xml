@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>City__c</fullName>
+    <label>City</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>State__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Jaipur</fullName>
+                <default>false</default>
+                <label>Jaipur</label>
+            </value>
+            <value>
+                <fullName>Munnar</fullName>
+                <default>false</default>
+                <label>Munnar</label>
+            </value>
+            <value>
+                <fullName>Panaji</fullName>
+                <default>false</default>
+                <label>Panaji</label>
+            </value>
+            <value>
+                <fullName>Agra</fullName>
+                <default>false</default>
+                <label>Agra</label>
+            </value>
+            <value>
+                <fullName>Mumbai</fullName>
+                <default>false</default>
+                <label>Mumbai</label>
+            </value>
+            <value>
+                <fullName>Manali</fullName>
+                <default>false</default>
+                <label>Manali</label>
+            </value>
+            <value>
+                <fullName>Chennai</fullName>
+                <default>false</default>
+                <label>Chennai</label>
+            </value>
+            <value>
+                <fullName>Rishikesh</fullName>
+                <default>false</default>
+                <label>Rishikesh</label>
+            </value>
+            <value>
+                <fullName>Darjeeling</fullName>
+                <default>false</default>
+                <label>Darjeeling</label>
+            </value>
+            <value>
+                <fullName>Srinagar</fullName>
+                <default>false</default>
+                <label>Srinagar</label>
+            </value>
+            <value>
+                <fullName>North Goa</fullName>
+                <default>false</default>
+                <label>North Goa</label>
+            </value>
+            <value>
+                <fullName>South Goa</fullName>
+                <default>false</default>
+                <label>South Goa</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Goa</controllingFieldValue>
+            <valueName>North Goa</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Goa</controllingFieldValue>
+            <valueName>South Goa</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

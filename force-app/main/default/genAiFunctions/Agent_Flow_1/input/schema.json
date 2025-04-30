@@ -1,0 +1,14 @@
+{
+  "required" : [ "BookingNumber" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "BookingNumber" : {
+      "title" : "BookingNumber",
+      "description" : "Get Booking Number from Dealer",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

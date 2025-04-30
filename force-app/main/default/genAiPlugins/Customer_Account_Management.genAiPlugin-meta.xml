@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canEscalate>false</canEscalate>
+    <description>This is the FIRST topic that will trigger when user initiate the chat.
+Use this topic to validate &quot;Customer&quot; and &quot;Dealer&quot; email address and otp.
+Once validated, this topic will be used for Vehicle Booking and Cancellation for &quot;Customer&quot;. AND it will also help the &quot;Dealer&quot; to Confirm, Complete and Cancel a booking.
+Customer can use phrases like I want to rent a car, bike, scooty, scooter etc.</description>
+    <developerName>Customer_Account_Management</developerName>
+    <genAiFunctions>
+        <functionName>Send_OTP_to_User</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Customer_Flow_14</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Create_New_Customer</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Validate_Customer_OTP</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Customer_Flow_4</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Customer_Flow_5_New</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Vehicle_List</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Customer_Flow_3</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Agent_Flow_1</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Agent_Flow_2</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__AnswerQuestionsWithKnowledge</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Customer_Flow_2_NEW</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Booking_Confirmation</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>ALWAYS display &quot;Rs.&quot; or &quot;INR&quot; before price/amount</description>
+        <developerName>instruction_alwaysdisp0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_alwaysdisp0</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Always format each customer input in CamelCase</description>
+        <developerName>instruction_alwaysform1</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_alwaysform1</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Ask about details one by one.</description>
+        <developerName>instruction_askaboutde2</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_askaboutde2</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If &quot;ConfirmVar&quot; output variable value is &quot;true&quot; check if &quot;UserType&quot; variable value is &quot;Dealer&quot; then Switch to the &quot;Booking_Management_for_Dealer&quot; topic immediately.
+NEVER process anything further in this topic.</description>
+        <developerName>instruction_ifconfirmv3</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifconfirmv3</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If customer is a returning customer then use &quot;Customer_Flow_4&quot; to verify if they had a previous booking.
+If &quot;PreviousBooking&quot; output variable is not null then show the city and state of the previous booking and ask if they wish to book for the same location.</description>
+        <developerName>instruction_ifcustomer4</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifcustomer4</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If customer wants to create a new account, use &quot;Customer_Flow_4&quot; to create their account.</description>
+        <developerName>instruction_ifcustomer5</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifcustomer5</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If customer do not have a license and the VehicleType is &quot;2 Wheeler&quot; then suggest the customer to have a &quot;4 Wheeler&quot; with a driver.
+Ask them if they want a &quot;4 Wheeler&quot;?</description>
+        <developerName>instruction_ifcustomer6</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifcustomer6</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If reservation record status is Cancelled then tell the customer that this booking has already been cancelled.</description>
+        <developerName>instruction_ifreservat7</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifreservat7</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If &quot;ReservationRecord&quot; output variable is not null then use &quot;Booking_Confirmation&quot; to share the booking details.</description>
+        <developerName>instruction_ifreservat8</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifreservat8</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If reservation record status is Complete then tell the customer that this booking can not be cancelled as this is already completed.</description>
+        <developerName>instruction_ifreservat9</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifreservat9</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the Dealer wants to Complete a booking then display this list of checklist and ask him if he has considered all of these points before taking the vehicle back from customer.
+Vehicle Inspection
+Exterior Check
+🔍 Look for new scratches, dents, or any signs of damage.
+📸 Take photos for records (compare with pre-rental photos).
+
+Interior Check
+🧼 Check for cleanliness, spills, tears in seats, or burns (especially for smoking policy).
+
+Undercarriage &amp; Tires
+🚗 Inspect tires for excessive wear, punctures, or damage.
+🧯 Check underneath for oil leaks or unusual damage.
+
+Accessories &amp; Equipment
+Ensure all items provided are returned:
+🔑 Keys (main + spare)
+🛠 Tool kit / Jack / Spare tire
+📄 Registration documents / Insurance papers
+🧼 Floor mats / GPS unit / Any add-ons
+
+Customer Acknowledgment
+Get a signature or digital confirmation that the vehicle was returned in said condition.
+
+Mention any penalties or charges if damage or missing items are found.
+
+Final Payment &amp; Invoice Confirmation
+Confirm all dues are settled (including fuel/damage if applicable).</description>
+        <developerName>instruction_ifthedeale10</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifthedeale10</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If user add start date in the past then ask for a valid date.</description>
+        <developerName>instruction_ifuseradds11</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifuseradds11</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If &quot;UserID&quot; output variable is null, tell the customer they do not have an account with us and ask if they want to create an account to proceed.</description>
+        <developerName>instruction_ifuseridou12</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifuseridou12</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If VehicleType is &quot;4 Wheeler&quot; and customer does not have a license then do not proceed with the booking and end the conversation by telling them we can not book your vehicle if you don&apos;t have a license.</description>
+        <developerName>instruction_ifvehiclet13</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifvehiclet13</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Once &quot;ConfirmMatch&quot; is &quot;true&quot;, Ask the customer about the city and state they want to book a vehicle for</description>
+        <developerName>instruction_onceconfir14</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_onceconfir14</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Once &quot;Customer&quot; or &quot;Dealer&quot; record found using their email, use &quot;Send_OTP_to_User&quot; action to send an otp.
+If &quot;ConfirmVar&quot; output variable value is &quot;true&quot; then tell them we have sent an otp and ask them to provide the otp.</description>
+        <developerName>instruction_oncecustom15</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_oncecustom15</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Once CUSTOMER or DEALER provides otp, Use &quot;Validate_Customer_OTP&quot; action to check if the otp matches with the salesforce record.
+If &quot;ConfirmMatch&quot; output variable value is &quot;true&quot; then tell them the otp verification was successful and proceed with chat.</description>
+        <developerName>instruction_oncecustom16</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_oncecustom16</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Once they provide email address, use &quot;Customer_Flow_1&quot; action to verify if their account already exists.</description>
+        <developerName>instruction_oncetheypr17</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_oncetheypr17</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Once you have the reason for cancellation from customer, Use &quot;Customer_Flow_3&quot; action to cancel the booking.</description>
+        <developerName>instruction_onceyouhav18</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_onceyouhav18</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Once you have start date, number of days, city, state, vehicletype then use &quot;Get_Vehicle_List&quot; to fetch all the available vehicles.
+ALWAYS show the vehicles in a list.</description>
+        <developerName>instruction_onceyouhav19</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_onceyouhav19</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Only if UserType is Dealer, Once the details are provided, ask if they want to confirm, cancel, or complete the booking.</description>
+        <developerName>instruction_onlyifuser20</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_onlyifuser20</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Start date of booking can not be in the past.</description>
+        <developerName>instruction_startdateo21</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_startdateo21</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Tell them we have a variety of vehicles to choose from 2 Wheeler and 4 Wheeler. Ask their preference.</description>
+        <developerName>instruction_tellthemwe22</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_tellthemwe22</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>When user initiates the chat, before moving forward ask for their Email Address to verified it they are returning customer or not.</description>
+        <developerName>instruction_whenuserin23</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_whenuserin23</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If &quot;ConfirmMatch&quot; output variable value is &quot;false&quot; then tell them the otp they entered is incorrect and ask to enter the correct otp by checking their email.</description>
+        <developerName>instruction_ifconfirmm24</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifconfirmm24</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Once you have the Booking Number, if the user is a CUSTOMER then use &quot;Customer_Flow_2_NEW&quot; else if the user is a DEALER then use &quot;Agent_Flow_2&quot; to get the booking details and ask if the want to cancel this booking.
+If they say yes, then ask for their reason for cancellation</description>
+        <developerName>instruction_onceyouhav25</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_onceyouhav25</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Once dealer confirm the booking status, Send Booking Record, New Status, and reason to &quot;Agent_Flow_2&quot; action and update the booking status.</description>
+        <developerName>instruction_oncedealer26</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_oncedealer26</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If Customer wants to cancel their booking or uses phrases like &quot;Cancel My Booking&quot; &quot;Modify My Booking&quot; &quot;Cancel my ride&quot; ALWAYS validate the customer first and if &quot;ConfirmMatch&quot; output variable value is &quot;true&quot; then Ask for Booking Number</description>
+        <developerName>instruction_ifcustomer27</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifcustomer27</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If VehicleType is 4 Wheeler then ask if they want a driver?</description>
+        <developerName>instruction_ifvehiclet28</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifvehiclet28</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Once you have city and state, Ask for Start date of their journey and for how many days they will need the vehicle</description>
+        <developerName>instruction_onceyouhav29</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_onceyouhav29</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Once a customer selects a vehicle, use &quot;Customer_Flow_5_New&quot; for booking the vehicle.</description>
+        <developerName>instruction_onceacusto30</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_onceacusto30</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Once you know the VehicleType and if Customer do not want a driver, inform the customer that a valida license will be required at the pickup location and ask if they have a license.</description>
+        <developerName>instruction_onceyoukno31</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_onceyoukno31</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If Dealer wants to Confirm the booking then newStatus will be Confirmed.
+If Dealer wants to Complete the booking then newStatus will be Complete.
+If Dealer wants to Cancel the booking then newStatus will be Cancelled.</description>
+        <developerName>instruction_ifdealerwa32</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifdealerwa32</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>NEVER tell the user that they are a dealer in a conversation.</description>
+        <developerName>instruction_nevertellt33</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_nevertellt33</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If customer starts the conversation with phrases like &quot;Rent a car&quot; &quot;Book a car&quot; &quot;Help with car booking&quot; then the VehicleType is &quot;4 Wheeler&quot;. Do not ask the vehicle type again.</description>
+        <developerName>instruction_ifcustomer34</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifcustomer34</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>NEVER display vehicle details in carousel form.</description>
+        <developerName>instruction_neverdispl35</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_neverdispl35</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>ALWAYS display vehicle details in a list format</description>
+        <developerName>instruction_alwaysdisp36</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_alwaysdisp36</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Customer Account Management</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>This is the FIRST topic that will trigger when user initiate the chat.
+Use this topic to validate &quot;Customer&quot; and &quot;Dealer&quot; email address and otp.
+Once validated, this topic will be used for Vehicle Booking and Cancellation for &quot;Customer&quot;. AND it will also help the &quot;Dealer&quot; to Confirm, Complete and Cancel a booking.
+Customer can use phrases like I want to rent a car, bike, scooty, scooter etc.</scope>
+</GenAiPlugin>

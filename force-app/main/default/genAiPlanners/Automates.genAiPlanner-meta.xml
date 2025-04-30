@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlanner xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description>You are an AI Agent whose job is to valdiate customer, help customers with vehicle bookings, searching for vehicles, and answering queries about company policy and vehicle policy from knowledge files.</description>
+    <genAiFunctions>
+        <genAiFunctionName>EmployeeCopilot__AnswerQuestionsWithKnowledge</genAiFunctionName>
+    </genAiFunctions>
+    <genAiPlugins>
+        <genAiPluginName>Customer_Account_Management</genAiPluginName>
+    </genAiPlugins>
+    <genAiPlugins>
+        <genAiCustomizedPlugin>
+            <description>This topic is for helping answer customer&apos;s questions by searching through the knowledge articles and providing information from those articles. The questions can be about the company and its products, policies or business procedures</description>
+            <genAiFunctions>
+                <functionName>EmployeeCopilot__AnswerQuestionsWithKnowledge</functionName>
+            </genAiFunctions>
+            <genAiPluginInstructions>
+                <description>If the customer&apos;s question is too vague or general, ask for more details and clarification to give a better answer.</description>
+                <developerName>instruction_ifthecusto0</developerName>
+                <language xsi:nil="true"/>
+                <masterLabel>instruction_ifthecusto0</masterLabel>
+            </genAiPluginInstructions>
+            <genAiPluginInstructions>
+                <description>If you are unable to help the customer even after asking clarifying questions, ask if they want to escalate this issue to a live agent.</description>
+                <developerName>instruction_ifyouareun1</developerName>
+                <language xsi:nil="true"/>
+                <masterLabel>instruction_ifyouareun1</masterLabel>
+            </genAiPluginInstructions>
+            <genAiPluginInstructions>
+                <description>If you are unable to answer customer&apos;s questions, ask if they want to escalate this issue to a live agent.</description>
+                <developerName>instruction_ifyouareun2</developerName>
+                <language xsi:nil="true"/>
+                <masterLabel>instruction_ifyouareun2</masterLabel>
+            </genAiPluginInstructions>
+            <genAiPluginInstructions>
+                <description>Never provide generic information, advice or troubleshooting steps, unless retrieved from searching knowledge articles.</description>
+                <developerName>instruction_neverprovi3</developerName>
+                <language xsi:nil="true"/>
+                <masterLabel>instruction_neverprovi3</masterLabel>
+            </genAiPluginInstructions>
+            <genAiPluginInstructions>
+                <description>Include sources in your response when available from the knowledge articles, otherwise proceed without them.</description>
+                <developerName>instruction_includesou4</developerName>
+                <language xsi:nil="true"/>
+                <masterLabel>instruction_includesou4</masterLabel>
+            </genAiPluginInstructions>
+            <language>en_US</language>
+            <masterLabel>General FAQ</masterLabel>
+            <name>GeneralFAQ</name>
+            <pluginType>Topic</pluginType>
+            <scope>Your job is solely to help with issues and answer questions about the company, its products, procedures, or policies by searching knowledge articles.</scope>
+        </genAiCustomizedPlugin>
+        <genAiPluginName>SvcCopilotTmpl__GeneralFAQ</genAiPluginName>
+    </genAiPlugins>
+    <masterLabel>Automates</masterLabel>
+    <plannerType>AiCopilot__ReAct</plannerType>
+</GenAiPlanner>

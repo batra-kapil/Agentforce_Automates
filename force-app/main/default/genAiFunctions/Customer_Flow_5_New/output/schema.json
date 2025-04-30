@@ -1,0 +1,27 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Error" : {
+      "title" : "Error",
+      "description" : "If this is not null, Show customer an error message.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : true,
+      "copilotAction:isUsedByPlanner" : true,
+      "copilotAction:useHydratedPrompt" : false
+    },
+    "ReservationRecord" : {
+      "title" : "ReservationRecord",
+      "description" : "Do not show it to the user directly. This variable will be used by a prompt action to summaries the booking.",
+      "lightning:type" : "lightning__recordInfoType",
+      "lightning:sObjectInfo" : {
+        "apiName" : "Reservation__c"
+      },
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true,
+      "copilotAction:useHydratedPrompt" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

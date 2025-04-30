@@ -1,0 +1,77 @@
+{
+  "required" : [ "City", "Driver", "Email", "NumberofDays", "StartDate", "State", "VehicleId", "VehiclePrice", "VehicleType", "vehicleLocation" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "City" : {
+      "title" : "City",
+      "description" : "Get City from Customer",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "Driver" : {
+      "title" : "Driver",
+      "description" : "If customer says Yes for driver store Yes otherwise No",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "Email" : {
+      "title" : "Email",
+      "description" : "Get Customer Email",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "NumberofDays" : {
+      "title" : "NumberofDays",
+      "description" : "Get Number Of Days from customer",
+      "lightning:type" : "lightning__numberType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "StartDate" : {
+      "title" : "StartDate",
+      "description" : "Get Start Date from customer",
+      "lightning:type" : "lightning__dateType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "State" : {
+      "title" : "State",
+      "description" : "Get State from Customer",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "VehicleId" : {
+      "title" : "VehicleId",
+      "description" : "Get Vehicle_Id_c__c of the selected vehicle",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "VehiclePrice" : {
+      "title" : "VehiclePrice",
+      "description" : "Get Daily_Rental_Price_c__c from the selected vehicle",
+      "lightning:type" : "lightning__numberType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "VehicleType" : {
+      "title" : "VehicleType",
+      "description" : "Get Vehicle type from customer",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "vehicleLocation" : {
+      "title" : "vehicleLocation",
+      "description" : "Get Pickup_Location_Name_c__c from the selected vehicle",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

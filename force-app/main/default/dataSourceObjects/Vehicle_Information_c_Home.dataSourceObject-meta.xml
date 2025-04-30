@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataSourceObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <dataSource>Salesforce_Home</dataSource>
+    <externalRecordIdentifier>Vehicle_Information__c</externalRecordIdentifier>
+    <masterLabel>Vehicle_Information__c</masterLabel>
+    <storageType>LOCAL</storageType>
+    <templateVersion>1</templateVersion>
+</DataSourceObject>

@@ -1,0 +1,24 @@
+{
+  "required" : [ "Input:Reservation__c" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Input:Reservation__c" : {
+      "title" : "objectToSummarize",
+      "description" : "Get ReservationRecord",
+      "lightning:type" : "lightning__recordInfoType",
+      "lightning:sObjectInfo" : {
+        "apiName" : "Reservation__c"
+      },
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "citationMode" : {
+      "title" : "Citation Mode",
+      "description" : "Select Citation Mode",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

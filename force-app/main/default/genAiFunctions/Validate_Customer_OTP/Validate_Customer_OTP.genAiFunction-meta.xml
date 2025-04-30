@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This action helps validate the otp this will use customer__c object this will trigger to validate the otp entered by customer</description>
+    <invocationTarget>Validate_Customer_OTP</invocationTarget>
+    <invocationTargetType>flow</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+    <masterLabel>Validate Customer OTP</masterLabel>
+    <progressIndicatorMessage>Valdiating your otp…</progressIndicatorMessage>
+</GenAiFunction>

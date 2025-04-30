@@ -1,0 +1,21 @@
+{
+  "required" : [ "BookingNumber", "CustomerUniqueID" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "BookingNumber" : {
+      "title" : "BookingNumber",
+      "description" : "Get Booking Number from Customer",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "CustomerUniqueID" : {
+      "title" : "CustomerUniqueID",
+      "description" : "Get customer UserID",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

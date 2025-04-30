@@ -1,0 +1,22 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "vehicleInventory" : {
+      "title" : "vehicleInventory",
+      "description" : "Show List of Vehicles with values Vehicle Name, Color, Last Service Date, Pickup Location, Daily Rental Price and highlight the Daily Rental Price in bold. Add per day after the Daily Rental Price amount.",
+      "maxItems" : 2000,
+      "items" : {
+        "lightning:type" : "lightning__recordInfoType",
+        "lightning:sObjectInfo" : {
+          "apiName" : "Vehicle_Inventory__dlm"
+        }
+      },
+      "lightning:type" : "lightning__listType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : true,
+      "copilotAction:isUsedByPlanner" : true,
+      "copilotAction:useHydratedPrompt" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}
